@@ -24,8 +24,9 @@ func main() {
 
 	// This is where we define the API routes
 	routes.StudentRoutes(router)
-	
+
 	// routes.HealthCheck(router)
+	routes.HealthCheck(router)
 
 	router.Run()
 }
