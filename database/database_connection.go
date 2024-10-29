@@ -6,15 +6,15 @@ import (
 	"gorm.io/gorm"
 )
 
+var DB *gorm.DB
+
 // Database connection
-func DatabaseConnection() *gorm.DB {
-	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
-	if err != nil {
-		panic("failed to connect database")
+func InitDB() {
+        var err error
+        DB, err = gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
+        if err != nil {
+            panic("failed to connect database")
+        }
+
+        DB.AutoMigrate(&models.Student{})
 	}
-
-	db.AutoMigrate(&models.Student{})
-	return db
-}
-
-var Client *gorm.DB = DatabaseConnection()

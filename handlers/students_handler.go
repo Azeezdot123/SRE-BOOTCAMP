@@ -18,7 +18,11 @@ func CreateStudent(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	database.Client.Create(&student)
+	create := database.DB.Create(&student)
+	if create.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": create.Error.Error()})
+		return
+	}
 	c.JSON(http.StatusCreated, student)
 }
 

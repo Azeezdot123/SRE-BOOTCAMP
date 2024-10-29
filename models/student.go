@@ -8,9 +8,9 @@ import (
 
 type Student struct {
 	gorm.Model
-	FirstName   string `json:"first_name" validate:"required,min=2,max=100"`
-	LastName    string `json:"last_name" validate:"required,min=2,max=100"`
-	Age         int    `json:"age" validate:"required"`
+	FirstName   string 
+	LastName    string 
+	Age         int    
 	Sex 	   string
 }
 
@@ -22,7 +22,7 @@ func (s *Student) Validate() error {
 		return errors.New("age must be greater than 0")
 	}
 	if s.Sex == "" {
-		return errors.New("Sex is required")
+		return errors.New("sex is required")
 	}
 	return nil
 }

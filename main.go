@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 
+	"github.com/azeezdot123/SRE-BOOTCAMP/database"
 	"github.com/azeezdot123/SRE-BOOTCAMP/routes"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -16,16 +17,16 @@ func init() {
 }
 
 func main() {
+	router := gin.Default()
 	
+	// Initialize the DB
+	database.InitDB()
 
-	router := gin.New()
-	router.Use(gin.Logger())
-
-	// This is where we are calling the routes
+	// This is where we define the API routes
 	routes.StudentRoutes(router)
 	// routes.HealthCheck(router)
 
-	
+	router.Run("PORT")
 
 	// r := gin.Default()
 	// r.GET("/ping", func(c *gin.Context) {
