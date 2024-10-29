@@ -13,6 +13,6 @@ func StudentRoutes(r *gin.Engine) {
 	r.DELETE("/api/v1/student/:id", handlers.DeleteStudent)
 }
 
-// func HealthCheck(router *gin.Engine) {
-// 	router.GET("/api/v1/healthcheck", handlers.HealthCheck)
-// }
+func HealthCheck(r *gin.Engine) {
+	r.GET("/api/v1/healthcheck", handlers.HealthCheck)
+}
