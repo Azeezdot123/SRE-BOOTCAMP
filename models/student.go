@@ -8,14 +8,14 @@ import (
 
 type Student struct {
 	gorm.Model
-	FirstName   string 
-	LastName    string 
-	Age         int    
-	Sex 	   string
+	FirstName   string `json:"first_name"`
+	LastName    string `json:"last_name"`
+	Age         int `json:"age"`    
+	Sex 	   string `json:"sex"`
 }
 
 func (s *Student) Validate() error {
-	if s.FirstName == "" && s.LastName == "" {
+	if s.FirstName == "" || s.LastName == "" {
 		return errors.New("first name and last name is required")
 	}
 	if s.Age < 0 {
