@@ -7,10 +7,10 @@ import (
 
 func StudentRoutes(r *gin.Engine) {
 	r.POST("/api/v1/students", handlers.CreateStudent)
-	// router.GET("/api/v1/students", handlers.GetStudents)
-	// router.GET("/api/v1/students/:id", handlers.GetStudent)
-	// router.PUT("/api/v1/students/:id", handlers.UpdateStudent)
-	// router.DELETE("/api/v1/students/:id", handlers.DeleteStudent)
+	r.GET("/api/v1/students", handlers.GetStudents)
+	r.GET("/api/v1/student/:id", handlers.GetStudentById)
+	r.PUT("/api/v1/student/:id", handlers.UpdateStudent)
+	r.DELETE("/api/v1/student/:id", handlers.DeleteStudent)
 }
 
 // func HealthCheck(router *gin.Engine) {

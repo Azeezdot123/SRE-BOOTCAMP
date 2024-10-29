@@ -6,7 +6,8 @@ This boot camp is designed with a problem-first approach rather than a technolog
 ### Functional Requirement
 
 - [x] Add a new student.
-- [ ] Get all students.
-- [ ] Get a student with an ID.
-- [ ] Update existing student information.
-- [ ] Delete a student record.
+- [x] Get all students.
+- [x] Get a student with an ID.
+- [x] Update existing student information.
+- [x] Delete a student record.
+- [ ] Create the health check endpoint
